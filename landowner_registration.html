@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landowner Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+          
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 40px; 
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px; 
+            max-width: 100%; 
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        input[type="submit"] {
+            width: calc(100% - 22px); 
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #008000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #006400; 
+        }
+    </style>
+</head>
+<body style="background-image: url('./farmland_1112-1235.jpg'); background-repeat: no-repeat; background-size: cover; "></body>
+    <form action="landowner_registration.php" method="POST">
+        <h2>Participate In Bidding </h2>
+        <label>Name:</label>
+        <input type="text" name="name">
+        <label>Mobile Number:</label>
+        <input type="text" name="mobile_number">
+        <label>City:</label>
+        <input type="text" name="city">
+        <label>Product_name:</label>
+        <input type="text" name="product_name">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+
+

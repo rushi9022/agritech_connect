@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+            display: flex;
+            height: 100vh;
+            
+        }
+
+        .background {
+            width: 50%; 
+            background-image: url('./uploads/e-uparjan-feature-compressed.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: backgroundAnimation 200s infinite alternate linear; 
+        }
+
+        .form-container {
+            width: 50%; 
+            background-color: rgba(255, 255, 255, 0.8); 
+            padding: 40px; 
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            width: 100%; 
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        input[type="submit"],
+        input[type="date"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            background-color: #008000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #006400;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 100% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .background, .form-container {
+                width: 100%; 
+            }
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="script.js"></script>
+    <script>
+        function initMap() {
+            // Initialize map
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 0, lng: 0},
+                zoom: 4 // You can adjust the initial zoom level
+            });
+
+            // Get city coordinates from PHP
+
+            // Add markers for each city
+            cities.forEach(function(city) {
+                var marker = new google.maps.Marker({
+                    position: {lat: parseFloat(city.latitude), lng: parseFloat(city.longitude)},
+                    map: map,
+                    title: city.name
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="form-container">
+        <form action="farmer_registration.php" method="POST" enctype="multipart/form-data">
+            <h2>Farmer Registration</h2>
+            <label>Name:</label>
+            <input type="text" name="name">
+            <label>Mobile Number:</label>
+            <input type="text" name="mobile_number">
+            <label>Product_name:</label>
+            <input type="text" name="product_name">
+            <label>Location:</label>
+            <input type="text" name="location">
+            <label>product_image:</label>
+            <input type="file" name="product_image">
+            <label>Start Date:</label>
+            <input type="date" name="start_date">
+            <label>End Date:</label>
+            <input type="date" name="end_date">
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+ <div id="map" style="height: 500px;"></div>
+</body>
+</html>
